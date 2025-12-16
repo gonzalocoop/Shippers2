@@ -56,7 +56,7 @@ export class RegistrartalleresComponent implements OnInit {
     this.cargarUsuarioLogueado();
     this.role = this.lS.showRole();
     this.formTaller = this.fb.group({
-      titulo: ['', Validators.required],
+      titulo: ['', Validators.required, Validators.maxLength(50)],
       descripcion: ['', Validators.required],
       categoria: ['', Validators.required],
       direccion: ['', Validators.required],
