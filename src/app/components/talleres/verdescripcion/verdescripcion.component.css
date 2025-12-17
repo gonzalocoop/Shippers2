@@ -512,3 +512,106 @@
 .btn-secundario:active {
   transform: scale(0.97);
 }
+
+
+/* ============================= */
+/*        RESPONSIVE TABLET      */
+/* ============================= */
+@media (max-width: 1024px) {
+
+  .layout {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .right {
+    position: relative;
+    top: unset;
+  }
+
+  .hero-overlay {
+    left: 30px;
+    right: 30px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 36px;
+  }
+}
+
+
+
+/* ============================= */
+/*        RESPONSIVE MOBILE      */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .hero {
+    height: 300px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+  .hero-overlay {
+    bottom: 25px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 26px;
+  }
+
+  .hero-overlay p {
+    font-size: 15px;
+  }
+
+  .ribbon {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .layout {
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .section-incluye {
+    grid-template-columns: 1fr;
+  }
+
+  .comunidad {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-reserva {
+    padding: 24px;
+  }
+
+  .card-reserva h2 {
+    font-size: 26px;
+  }
+
+  .btn-reservar {
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  .btn-volver {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+
