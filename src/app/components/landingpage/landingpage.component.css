@@ -144,17 +144,7 @@
   opacity: 0.8;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .footer {
-    padding: 40px 20px;
-  }
 
-  .footer-container {
-    flex-direction: column;
-    gap: 35px;
-  }
-}
 
 /* ============================================
     📦 SECCIÓN FIJAS (TARJETAS) - Ajustes Menores
@@ -188,13 +178,12 @@
     🧭 NAVBAR SIMPLE (sin cambios)
 ============================================ */
 nav {
-  height: 76px;
-  background: #fff;
+  height: 70px;
+  background: #0F2C44;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 56px;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.04);
+  padding: 0 20px;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -448,70 +437,11 @@ nav .nav-actions button {
   right: -20px;
 }
 
-/* ============================================
-    📱 RESPONSIVE (Ajustes para carrusel en móvil)
-============================================ */
-@media (max-width: 900px) {
 
-  .hero-wrapper {
-    flex-direction: column;
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  .hero-mapa {
-    justify-content: center;
-  }
-
-  .mapa-peru {
-    width: 280px;
-  }
-
-  .maki-bubble {
-    position: static;
-    margin-top: 20px;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    padding: 0 20px;
-  }
-
-  .hero-text h1 {
-    font-size: 32px;
-  }
-
-  .arrow {
-    display: none;
-  }
-  
-  /* En móvil, el scroll táctil es preferible, permitimos overflow */
-  .cards-track {
-    overflow-x: auto; 
-    justify-content: flex-start;
-    padding: 10px;
-  }
-
-  .fijas-container {
-    flex-wrap: nowrap; 
-    justify-content: flex-start;
-    padding: 0 10px;
-  }
-}
 
 
 /* NAVBAR */
-nav {
-  width: 100%;
-  padding: 12px 30px;
-  background: #e2f2ff;     /* celeste suave */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
+
 
 .logo-container {
   display: flex;
@@ -661,18 +591,6 @@ nav {
 }
 
 /* NAV con fondo sólido para contraste */
-nav {
-  height: 76px;
-  background: #0F2C44; /* azul oscuro andino */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 56px;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
 
 /* Cambia el texto del logo para que se vea */
 .logo-text {
@@ -726,4 +644,104 @@ nav {
 
 .nav-actions a:last-child .option:hover {
   background: #3A78C0;
+}
+
+
+@media (max-width: 768px) {
+
+  .hero-wrapper {
+    flex-direction: column;
+    padding: 30px 16px;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .btn-cta {
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .hero-mapa {
+    margin-top: 20px;
+  }
+
+  .mapa-peru {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .maki-bubble {
+    position: static;
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .maki {
+    display: none; /* el flotante inferior */
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  nav {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .option {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .cards-track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+  }
+
+  .fija-card {
+    scroll-snap-align: center;
+    width: 240px;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-block {
+    width: 100%;
+  }
 }
