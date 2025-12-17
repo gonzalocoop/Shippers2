@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Comentarios } from '../../../models/Comentarios';
 import { ComentariosService } from '../../../services/comentarios.service';
 import { ComentarioTallerDTO } from '../../../models/ComentarioTallerDTO';
+import { CorreotallerService } from '../../../services/correotaller.service';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class VerdescripcionComponent implements OnInit {
 
   selectedUser: string = localStorage.getItem("username") ?? "";
   idUsuarioLogueado = 0;
+  correUsuario: string = "";
   taller: Talleres = new Talleres();
   id: number = 0;
 
@@ -63,7 +65,8 @@ export class VerdescripcionComponent implements OnInit {
     private uS: UsuariosService,
     private pp: PerfilpublicoService,
     private comentarioService: ComentariosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private emailjs: CorreotallerService
   ) { }
 
   ngOnInit(): void {
@@ -282,6 +285,12 @@ export class VerdescripcionComponent implements OnInit {
         next: () => {
           alert("Reserva registrada con éxito 🎉");
           this.refrescarDatos();
+          this.emailjs.enviarTaller(this.taller.titulo, this.correUsuario, this.participantes, this.taller.precio, this.taller.link_imagen, this.total).
+            then(() => {
+              console.log('Correo enviado');
+            }).catch(err => {
+              console.error('Error enviando correo', err);
+            });
           this.participantes = 1;
         },
         error: (err) => {
@@ -315,6 +324,7 @@ export class VerdescripcionComponent implements OnInit {
   cargarUsuarioLogueado() {
     this.uS.usuarioPorUsername(this.selectedUser).subscribe(user => {
       this.idUsuarioLogueado = user.id_usuario;
+      this.correUsuario = user.correo;
     });
   }
 
