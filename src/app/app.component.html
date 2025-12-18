@@ -37,8 +37,7 @@
           Registrar paquetes de fijas 🔥
         </button>
 
-        <button *ngIf="isAdmin() " mat-button routerLink="/admin"
-          class="menu-btn blue-hover">
+        <button *ngIf="isAdmin() " mat-button routerLink="/admin" class="menu-btn blue-hover">
           Administrador
         </button>
 
@@ -68,7 +67,8 @@
             routerLink="/mistallerescumplidos">Vividos</button>
           <button *ngIf="isAdmin() || isUser()|| isEmprender()" mat-menu-item routerLink="/comentarios">Mis
             reseñas</button>
-          <button *ngIf="isAdmin() || isEmprender()" mat-menu-item routerLink="/posiblesfijas">Talleres aprobados para tener fijas!!</button>
+          <button *ngIf="isAdmin() || isEmprender()" mat-menu-item routerLink="/posiblesfijas">Talleres aprobados para
+            tener fijas!!</button>
         </mat-menu>
       </div>
 
@@ -86,7 +86,7 @@
 
         <!-- MENU DEL USUARIO -->
         <mat-menu #userMenu="matMenu">
-        <!--  <button *ngIf="isAdmin() || isUser()|| isEmprender()" mat-menu-item routerLink="/micuenta">Mi cuenta</button> -->
+          <!--  <button *ngIf="isAdmin() || isUser()|| isEmprender()" mat-menu-item routerLink="/micuenta">Mi cuenta</button> -->
           <button *ngIf="isAdmin() || isUser()|| isEmprender()" mat-menu-item (click)="logout()">Cerrar sesión</button>
         </mat-menu>
 
@@ -98,6 +98,9 @@
   <div class="page-container">
     <router-outlet></router-outlet>
   </div>
+
+  <!-- CHATBOT GLOBAL -->
+  <app-chatbot></app-chatbot>
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">

@@ -12,7 +12,7 @@ import { ChatbotComponent } from './components/chatbot/chatbot.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, RouterModule],
+  imports: [RouterOutlet, CommonModule, MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, RouterModule, ChatbotComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
