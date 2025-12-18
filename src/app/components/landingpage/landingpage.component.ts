@@ -5,10 +5,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { LasfijasService } from '../../services/lasfijas.service';
 import { LasFijas } from '../../models/LasFijas';
+import { ChatbotComponent } from '../chatbot/chatbot.component';
 @Component({
   selector: 'app-landingpage',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule,ChatbotComponent],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.css'
 })
@@ -16,6 +17,9 @@ export class LandingpageComponent implements OnInit {
 // Referencia al contenedor que queremos desplazar en el HTML
   @ViewChild('cardsTrack') cardsTrack!: ElementRef<HTMLDivElement>;
   
+   // Referencia al chatbot
+  @ViewChild(ChatbotComponent) chatbot!: ChatbotComponent;
+
   fijas: LasFijas[] = [];
 
   constructor(private lfS: LasfijasService) {}
@@ -51,4 +55,12 @@ export class LandingpageComponent implements OnInit {
       this.cardsTrack.nativeElement.scrollLeft -= scrollAmount;
     }
   }
+
+ toggleChatbot(): void {
+  if (this.chatbot.isOpen) {
+    this.chatbot.close();
+  } else {
+    this.chatbot.open();
+  }
+}
 }

@@ -1,0 +1,26 @@
+<div class="chatbot-container" *ngIf="isOpen">
+  <div class="chatbot-header">
+    🤖 Shippers IA
+    <span class="close" (click)="close()">✖</span>
+  </div>
+
+  <div class="chatbot-messages">
+    <div
+      *ngFor="let m of messages"
+      [class.user]="m.from === 'Tú'"
+      [class.ia]="m.from === 'IA'"
+      class="message"
+    >
+      {{ m.text }}
+    </div>
+  </div>
+
+  <div class="chatbot-input">
+    <input
+      [(ngModel)]="userInput"
+      placeholder="Escribe tu pregunta..."
+      (keydown.enter)="send()"
+    />
+    <button (click)="send()">Enviar</button>
+  </div>
+</div>
