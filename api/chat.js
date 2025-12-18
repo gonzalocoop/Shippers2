@@ -1,8 +1,6 @@
-export default async function handler(req: any, res: any) {
-
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    res.setHeader('Allow', ['POST']);
-    return res.status(405).end(`Method ${req.method} Not Allowed`);
+    return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
   try {
@@ -19,7 +17,8 @@ export default async function handler(req: any, res: any) {
         messages: [
           {
             role: 'system',
-            content: 'Eres el asistente oficial de Shippers.'
+            content:
+              'Eres el asistente oficial de Shippers. Responde solo sobre experiencias comunitarias en Perú.'
           },
           { role: 'user', content: question }
         ]
@@ -28,11 +27,10 @@ export default async function handler(req: any, res: any) {
 
     const data = await response.json();
 
-    return res.status(200).json({
-      answer: data.choices?.[0]?.message?.content || 'Sin respuesta'
+    res.status(200).json({
+      answer: data.choices?.[0]?.message?.content ?? 'No tengo respuesta'
     });
-
   } catch (err) {
-    return res.status(500).json({ error: 'Error interno' });
+    res.status(500).json({ error: 'Error interno' });
   }
 }
