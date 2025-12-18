@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, ViewChild, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LoginService } from './services/login.service';
 import { Router } from '@angular/router';
 import { inject as injectAnalytics } from '@vercel/analytics';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,6 +24,9 @@ export class AppComponent implements OnInit {
   showUserMenu = false;
   isAuthChecked = false;
   private platformId = inject(PLATFORM_ID);
+
+   // Referencia al chatbot
+  @ViewChild(ChatbotComponent) chatbot!: ChatbotComponent;
 
   constructor(
     private router: Router,
@@ -77,4 +81,12 @@ export class AppComponent implements OnInit {
   isEmprender() {
     return this.role === 'EMPRENDEDOR';
   }
+
+   toggleChatbot(): void {
+  if (this.chatbot.isOpen) {
+    this.chatbot.close();
+  } else {
+    this.chatbot.open();
+  }
+}
 }
